@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 50
+
+development:
+  <<: *default
+  url: postgres://admin_user:admin_user_pwd@localhost:15437/infor_dev
+
+# Warning: The database defined as "test" will be erased and
+# re_generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  url: postgres://admin_user:admin_user_pwd@localhost:15437/infor_test
+
+production:
+  <<: *default
+  url: postgres://admin_user:admin_user_pwd@localhost:5432/infor_dev
